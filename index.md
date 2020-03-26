@@ -1,4 +1,4 @@
-### Schnipsellll
+### Schnipsel 
 
 - [NodeJs](./nodejs.md)
 
