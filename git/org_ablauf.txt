@@ -1,0 +1,48 @@
+A = owner, B = collaborator
+1. A erstellt Organisation O1: name, billing-email, free
+2. A invited B als member von O1
+3. B erhält email: A has invited you to join O1 organisation
+B klickt auf join O1 und erscheint dann als Member in der Organisation.
+Die Memberschaft ist private (d.h. nach außen nicht sichtbar).
+4. A erstellt in O1 das Repo O1/ARrepo
+A füllt das O1/ARepo mit einem Anfangszustand C1
+6. A erstellt ein Issue I1 in O1/Repo
+7. B kommentiert I1 mit der Bereitschaft zur Übernahme
+8. A assigned I1 zu B
+9. B forked das Repo O1/ARepo in seinen Github-Account: B/ARepo
+10. B cloned B/ARepo auf den lokalen Rechner: local/BRepo
+11. B erstellt in local/BRepo einen branch I1branch
+12. B editiert in diesem branch und committed
+13. B pushed die Änderungen nach GitHub
+14. B geht in GitHub zum branch I1branch und erstellt einen pull
+request B/ARepo nach A/ARepo mit dem Kommentar fixes #<nr von I1>
+(oder: in Github-Desktop: Branch - create pull request - statt 13/14)
+15. A reviewed den pull request und macht ggf. Änderungswünsche
+16. B arbeitet die Änderungswünsche in seiner lokalen Datei loc/ARepo ein.
+und pushed wieder nach oben. Dadurch wird der pull-request verändert.
+B kann im pull-request noch einen Kommentar zu seiner Änderung hinterlassen.
+17. A holt sich den pull-request zum Testen auf seinen lokalen Rechner
+Aloc/ARepo und wechselt dort (automatisch) in den branch des pull-requests.
+Und probiert die Änderung aus.
+18. Von Github-Desktop geht es mit branch-show pull request direkt zu dem
+pull-request, der dann gemerged oder noch weiter kommentiert werden kann.
+19. B updated sein lokales rep mit: branch -  merge into current branch: upstream/master
+----------------------------------------------------------------
+Kurzfassung:
+A erstellt Issue #5
+B übernimmt A und sorgt dafür dass er mit branch -  merge into current branch: upstream/master
+den aktuellen Stand des A-Repos zur Verfügung hat. (vorher muss der fetch origin ... erfolgen)
+B editiert und pushed seinen Stand in sein geforktes repo
+B erstellt mit github desktop einen pull-request
+A reviewed den pull-request
+### vermutlich ist es doch wichtig, dass B einen branch für den Issue erstellt, damit
+er für einen anderen Issue auch noch weitermachen kann.
+--------------------------------------------------------
+Auf Github erscheint ein pull-request #33
+Dann in Github-Desktop ein Fetch machen. Die pull-requests
+erscheinen jetzt auch da. Wenn man drauf klickt wird ein
+neuer branch erstellt pr/33 und darin wird der pull-
+request gemerged. Jetzt kann man da rumwursteln und ausprobieren
+ob das passt. Wenn man nach dem Rumwursteln wieder
+auf den ursprünglichen Zustand des vorgeschlagenen pr
+zurückwill, kann man die eigenen Changes alle discarden.

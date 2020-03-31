@@ -1,0 +1,25 @@
+gradle.properties:
+
+android.enableJetifier=true
+android.useAndroidX=true
+org.gradle.jvmargs=-Xmx1536M
+
+build.gradle gibts zweimal
+
+dependencies {
+    classpath 'com.android.tools.build:gradle:3.3.0'
+    classpath 'com.google.gms:google-services:4.2.0'
+}
+
+compileSdkVersion 28
+
+Android manifest
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+location: ^2.3.5
+
+
+Bei dem http-Fehler einen flutter clean laufen lassen und die App
+vom Emulator deinstallieren. Dann zuerst die Permission für Location setzen
+Dann erst wieder laufen lassen.

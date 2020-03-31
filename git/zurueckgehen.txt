@@ -1,0 +1,24 @@
+Angenommen folgende Inhalt/Commit-Folge
+I1/C1, I2/C2, I3/C3
+I2 stellt sich als schlecht heraus.
+Man will nur den Inhalt I1+I2 haben.
+
+1. Möglichkeit:
+- git checkout -b C1branch shaC1   # erstellt neuen branch bei C1
+- checkout master + copy I3, checout C1branch + paste I3 + commit
+- checkout master, merge C1branch into master, resolve mergeconflicts
+  durch nehmen von C1branch.
+
+
+2. Möglichkeit
+- git branch badbranch (gibt die Möglichkeit aus dem schlechten Zustand noch
+  Sachen zu kopieren.)
+- git reset shaC1
+- copy aus badbranch, paste in C1 und commit.
+
+3. Möglichkeit:
+- revert C2. macht einen neuen commit der die Änderungen von
+  von C2 und C3 zurücknimmt. Dieser Zustand wird dann als zu mergen
+  vorgeschlagen, da das einen Konflikt mit dem Bestehenden ergibt, kann
+  man dann das gewünschte entsprechend editieren und den merge mit
+  einem neuen commit beenden.

@@ -1,0 +1,55 @@
+Man darf nicht null als Widget zurückgeben, wenn man nix zeigen will,
+gibt man einen leeren Container zurück: Container()
+
+Mit einer MaterialApp wird im Hintergrund auch ein Navigator erzeugt.
+Navigator fragt; Ist das home Attribut mit einem Widget versorg?
+ein home: Widget? Git es eine map für das routes Attribut? Gibt es
+eine callback-Funktion für onGenerateRoute?
+
+Die routes-map hat key Route Name und value PageBuilder
+RouteNames ahmen pfad-Syntax nach:  /,  /details
+
+In der Regel muss man Daten von der einen Seite zur anderen Seite bringen.
+Dafür eignet sich die onGenerateRoute callback.
+
+navigator.pushNamed(context,'/23')
+statt home:
+
+MaterialApp (
+  onGenerateRoute: (RouteSettings settings) {
+    if (settings.name == '/') {
+      ..
+       return MaterialPageRoute(   // das ist eine Art Builder-Funktion
+        builder: (context) {
+          return: NewsList();
+        }
+      }
+    )
+  }
+)
+
+ListTile(
+  onTap: () { Navigator.pushNames(context, '/${item.id}')  // 2.Argument wird settings.name
+  ...}
+)
+
+
+Scaffold gibt die Möglichkeit für typische Elemente: AppBar on top
+ein, floatingButton etc. AppBar hat schon ein zurück-Navigation eingebaut.
+
+Scaffold(
+ appBar: AppBar(title: Text('Detail')),
+ body: ...
+
+
+class CommentsBloc{}
+
+
+class CommentsProvider extends InheritedWidget{} {
+   final CommentsBloc bloc;
+   CommentsProvider({Key key, Widget, child})
+      : bloc = CommentsBloc(),
+        super(key: key, child: child);
+    bool updateShouldNotify(_) => true;
+    static
+}

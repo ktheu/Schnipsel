@@ -1,0 +1,20 @@
+
+1 Organisation pro Kurs pro Semester
+1 Repo pro Student pro Assignment
+
+
+1 org per course per semester
+1 repo per assignment per student
+
+You can re-use your orgs semester to semester. I recommend keeping one canonical “golden” org with your latest materials in it, and then copying it each semester.
+
+The repos (1 per assignment) can have both starter code and your static materials
+(we mostly use static materials for this course.
+
+I don’t really see the difference between commit and push in this case of students,
+I mean it would be fine by me for them to push after every commit,
+or only when they finish the whole thing for submission.
+
+Commit–snapshot of student work.
+Push–when they want to send a copy of that work to GitHub to back it up and share it.
+I would recommend they push when they can, especially with regards to group work.

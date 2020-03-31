@@ -1,0 +1,46 @@
+class Point {'constructoren.txt'
+
+  }
+}
+-----------------------------------------
+class Point {
+  num x, y;
+
+  // Syntactic sugar for setting x and y
+  // before the constructor body runs.
+  Point(this.x, this.y);
+}
+-------------------------------------------------
+If you don’t declare a constructor, a default constructor is provided for you.
+The default constructor has no arguments and invokes the no-argument constructor in the superclass.
+Subclasses don’t inherit constructors from their superclass.
+A subclass that declares no constructors has only the default (no argument, no name) constructor.
+----------------------------------------------
+Use a named constructor to implement multiple constructors for a class or to provide extra clarity:
+class Point {
+  num x, y;
+
+  Point(this.x, this.y);
+
+  // Named constructor
+  Point.origin() {
+    x = 0;
+    y = 0;
+  }
+}
+--------------------------------------------
+class MyHomePage extends StatefulWidget {
+  final String title;
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  declares 2 optional named parameters (optional named because of {}) where
+  the first is of name key with type Key.
+  Tthe 2nd is of name title with the type of the field this.title and automatically initializes this.title with the passed value This is nice syntactic sugar that saves some writing.
+
+  : starts the initializer list. The initializer list allows some to execute some expressions before the call is forwarded to the constructor of the super class.
+
+  When a class is initialized, read access to this is forbidden until the call to the super constructor is completed (until the body of the constructor is executed - in your example the constructor has no body).
+
+  The initializer list is often use to validate passed parameter values with assert(key != null) or to initialize final fields with calculated values (final fields can't be initialized or updated later).
+
+  super(key: key) forwards to the constructor of the super class and passes the parameter key passed to MyHomepage to the super constructors key parameter (same as for MyHomepage({Key key})).

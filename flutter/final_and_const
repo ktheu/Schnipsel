@@ -1,0 +1,8 @@
+final List<String> _products = [];
+
+final verhindert, dass man der Variablen _products einen neuen Wert zuordnet
+z.B. _products = ['Hallo']; geht nicht. Aber man kann die Liste verändern, also
+_products.add('Hallo'); geht.
+
+final List<String> _products = const [];
+verhindert, dass man die Liste _products auch mit Methoden verändert kann.

@@ -1,0 +1,31 @@
+c:\SonstigeProgramme\flutter\bin\
+
+usb-debugging beim A3:
+Menü-Einstellungen-Geräteinformation-Softwareinfo
+7 mal  auf die Bildnummer tippen - zurück und
+Entwickleroptionen wählen - usb-debugging aktivieren.
+
+flutter doctor -v
+
+env suchen und path-variable setzen
+
+c:\Program Files\Java\jdk-11.0.1
+
+flutter doctor --android-licenses
+Damit dies Funktioniert habe ich JAVA_HOME auf das mit Android mitgelieferte
+Java jre gesetzt 
+
+
+C:\Users\khthe\AppData\Local\Android\Sdk
+
+c:\Users\khthe\AppData\Local\Android\Sdk\tools\bin
+
+
+DEFAULT_JVM_OPTS='"-Dcom.android.sdklib.toolsdir=$APP_HOME" -XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
+
+ C:\Users\khthe\AppData\Local\Android\sdk\tools\bin\sdkmanager --update
+
+
+ --add-modules java.xml.bind
+
+ adb start-server

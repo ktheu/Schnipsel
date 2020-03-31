@@ -1,0 +1,101 @@
+Aufruf: Im Explorer auf Ordner, rechte Maustaste, GitBash here
+------------------
+Bash-Commands
+ls
+ls -a  # zeigt auch hidden files
+ls -l  # lange Infos
+ls -al
+ls -tr # List directory contents by reverse time of modification/creation.
+rm -rf infotrainer_neu  # löscht dir und alle Dateien drin ohne Nachfrage
+mkdir github_education
+touch readme.md     # legt die Datei an
+cat   readme.md     # zeigt die Datei an
+atom .    # das aktuelle Verzeichnis wird Projektverzeichnis in Atom
+
+---------
+update git:
+git clone https://github.com/git/git   ## noch zu probieren
+
+
+-----------
+Copy/Paste:
+Wenn im Bash-Fenster was selektiert wird, ist es automatisch im
+Clipboard. Paste mit Shift-Insert (auf Dell: fn+Shift+druck)
+------------------
+Documents:
+http://www.yolinux.com/TUTORIALS/unix_for_dos_users.html
+------------------
+###################
+Git:
+git --version
+git config user.name
+
+---------------------
+Eine neues Repo lokal erstellen
+git init exercise_1
+cd exercise_1
+touch readme.md
+git status
+git add readme.md
+git status
+git commit -m "initialized exercise-1"
+-----------------------------------------
+git diff            # vergleicht working area mit der staging area
+git diff --staged   # vergleicht staging area mit repo
+git log             # zeigt eine history der commits
+git add .           # alles aus working area geht in staging area
+git reset slides.html # wird aus staging area genommen
+git remote add origin <repo-location> # erstellt einen Zeiger zu einem Repo auf
+    einer anderen Maschine (in GitHub). Dort hat man das Repo offensichtlich
+    (hoffentlich ohne readme.md) erstellt.
+git remote          # zeigt, ob das lokal Repo schon zeiger woandershin hat
+git push origin master # in das remote repo mit Namen origin wird der lokale branch master geschickt.
+git push -u origin master # verbindet origin mit master und beim nächsten mal reicht: git push
+git fetch           # wenn auf Github handish editiert und commited wurde,
+                    # bringt fetch die Änderungsdaten auf das lokale repo. Aber erst durch ein merge
+                    # werden die Änderungen dann auch im master angezeigt (???)
+git show master     # zeigt, auf welchen commit der master-branch zeigt.
+git branch          # zeigt alle branches, der aktive hat den Stern
+git branch versuch  # neuen branch erstellen
+git branch -d the_local_branch
+git branch planet master^   # erstelle einen branch, der auf den commit zeigt: 1 vor dem
+                            # commit, auf den master zeigt.
+git push -u origin questions   # der branch questions wird auf github gepushed (dabei wird
+                               # der branch dort neu erstellt)
+---------------------
+Initialisierung:
+git config -l    # zeigt die Konfiguration
+Es müssen Name und email gesetzt sein
+git config --user.name "malteRiedberg"
+git config --user.email "malte.riedberg@googlemail.com"
+---------------------
+Ein Repo von GitHub clonen:
+In GitHub den Link ins Clipboard kopieren.
+Gehe in das directory, in dem das repo erstellt werden soll (also
+nicht vorher schon das directory erstellen!)
+git clone https://github.com/ktheu/infotrainer.git
+--------------------------------
+
+Pull request lokal ausprobieren:
+Auf den jeweiligen pull-request gehen und dann auf den Link
+command-line instructions clicken.
+
+git checkout -b jeppard-master master
+git pull https://github.com/jeppard/infotrainer.git master
+#
+# Jetzt Änderungen machen, z.B. Konflikte bereinigen und die committen.
+#
+git checkout master
+git merge --no-ff jeppard-master
+git push origin master
+-------------------------------------
+Die lokale Version eines geforkten Repos mit dem Original synchronisieren:
+Es muss ein remote definiert sein:
+
+git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+git remote -v    # Kontrolle der gesetzten Werte
+git merge upstream/master   # merged in den lokalen master
+git push origin/master      # pushed den lokalen master nach github
+
+-------------------------------------------------------------------
+git config --global alias.tree "log --graph --decorate --pretty=oneline --abbrev-commit"

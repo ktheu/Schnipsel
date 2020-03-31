@@ -1,0 +1,31 @@
+In Flutter, screens and pages are called routes. 
+// Within the `FirstRoute` widget
+onPressed: () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => SecondRoute()),
+  );
+}
+// Within the SecondRoute widget
+onPressed: () {
+  Navigator.pop(context);
+}
+
+
+MaterialApp(
+  initialRoute: '/',  // home-Attribut nicht mehr setzen
+  routes: {
+    '/': (context) => FirstScreen(),
+    '/second': (context) => SecondScreen(),
+  },
+);
+
+// Within the `FirstScreen` Widget
+onPressed: () {
+  Navigator.pushNamed(context, '/second');
+}
+
+// Within the SecondScreen Widget
+onPressed: () {
+  Navigator.pop(context);
+}

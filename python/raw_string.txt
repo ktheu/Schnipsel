@@ -1,0 +1,6 @@
+Das automatische Ersetzen von Escape-Sequenzen ist manchmal lästig, insbesondere
+dann, wenn sehr viele Backslashs in einem String vorkommen sollen. Für diesen
+Zweck gibt es in Python die Präfixe r oder R, die einem String-Literal vorangestellt
+werden können. Diese Präfixe markieren das Literal als einen sogenannten Raw-
+String (dt. »roh«), was dazu führt, dass alle Backslashs eins zu eins in den Resultat-
+String übernommen werden:

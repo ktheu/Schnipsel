@@ -1,0 +1,115 @@
+
+Public Function deutschPunkte(note, fach1, erg1, fach2, erg2, fach3, erg3)
+    If (Not IsNumeric(note) Or Trim(note) = "") Then
+        deutschPunkte = ""
+        Exit Function
+    End If
+
+    deutschPunkte = 4 * note
+    If Trim(fach1) = "D" And Trim(erg1) <> "" Then
+        deutschPunkte = Round((2 * note + erg1) * 4 / 3)
+    End If
+    If Trim(fach2) = "D" And Trim(erg2) <> "" Then
+        deutschPunkte = Round((2 * note + erg2) * 4 / 3)
+    End If
+    If Trim(fach3) = "D" And Trim(erg3) <> "" Then
+        deutschPunkte = Round((2 * note + erg3) * 4 / 3)
+    End If
+End Function
+
+
+Public Function mathePunkte(note, fach1, erg1, fach2, erg2, fach3, erg3)
+    If (Not IsNumeric(note) Or Trim(note) = "") Then
+        mathePunkte = ""
+        Exit Function
+    End If
+
+    mathePunkte = 4 * note
+    If Trim(fach1) = "M" And Trim(erg1) <> "" Then
+        mathePunkte = Round((2 * note + erg1) * 4 / 3)
+    End If
+    If Trim(fach2) = "M" And Trim(erg2) <> "" Then
+        mathePunkte = Round((2 * note + erg2) * 4 / 3)
+    End If
+    If Trim(fach3) = "M" And Trim(erg3) <> "" Then
+        mathePunkte = Round((2 * note + erg3) * 4 / 3)
+    End If
+End Function
+
+
+Public Function fsPunkte(note, fach1, erg1, fach2, erg2, fach3, erg3)
+    If (Not IsNumeric(note) Or Trim(note) = "") Then
+        fsPunkte = ""
+        Exit Function
+    End If
+
+    fsPunkte = 4 * note
+    If Trim(fach1) = "E" And Trim(erg1) <> "" Then
+        fsPunkte = Round((2 * note + erg1) * 4 / 3)
+    End If
+    If Trim(fach2) = "E" And Trim(erg2) <> "" Then
+        fsPunkte = Round((2 * note + erg2) * 4 / 3)
+    End If
+    If Trim(fach3) = "E" And Trim(erg3) <> "" Then
+        fsPunkte = Round((2 * note + erg3) * 4 / 3)
+    End If
+
+End Function
+
+Public Function unterpunktet(f20a, f20b, f20c, f5a, f5b) As Integer
+    zaehl = 0
+    If Trim(f20a) <> "" And f20a < 20 Then
+        zaehl = zaehl + 1
+    End If
+
+    If Trim(f20b) <> "" And f20b < 20 Then
+        zaehl = zaehl + 1
+    End If
+
+    If Trim(f20c) <> "" And f20c < 20 Then
+        zaehl = zaehl + 1
+    End If
+
+    If Trim(f5a) <> "" And f5a < 5 Then
+        zaehl = zaehl + 1
+    End If
+
+    If Trim(f5b) <> "" And f5b < 5 Then
+        zaehl = zaehl + 1
+    End If
+    unterpunktet = zaehl
+
+End Function
+
+
+Public Function summePunkte(m1, m2, s1, s2, s3)
+    ' m = mündlich, s = schriftlich
+    If Not IsNumeric(m1) Then
+        m1 = 0
+    End If
+
+    If Not IsNumeric(m2) Then
+        m2 = 0
+    End If
+
+    If Not IsNumeric(s1) Then
+        s1 = 0
+    End If
+
+    If Not IsNumeric(s2) Then
+        s2 = 0
+    End If
+
+    If Not IsNumeric(s3) Then
+        s3 = 0
+    End If
+
+
+
+    summePunkte = 4 * (m1 + m2) + s1 + s2 + s3
+    If summePunkte = 0 Then
+        summePunkte = ""
+    End If
+
+
+End Function

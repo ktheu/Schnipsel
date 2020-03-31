@@ -1,44 +1,66 @@
 ### Schnipsel 
 
-- [NodeJs](./nodejs.md)
+- [Bootstrap](./bootstrap/bootstrap.md)
 
-- [Bootstrap](./bootstrap.md)
+- [Chrome](./chrome/chrome.md)
 
-- [Vorlagen](./vorlagen.md)
+- [Codingame](./codingame/codingame.md)
 
-- [Python](./python.md)
+- [Colab](./colab/colab.md)
 
-- [Pytorch](pytorch/pytorch.md)
+- [Dart](./dart/dart.md)
 
-- [Neuronale Netze](./neuronaleNetze.md)
+- [Django](./django/django.md)
 
-- [JavaScript](./javascript.md)
+- [Flutter](./flutter/flutter.md)
 
-- [Mongoose](./mongoose.md)
+- [Git](./git/git.md)
 
-- [JQuery](./jquery.md)
+- [HTML](./html/html.md)
 
-- [HTML](./html.md)
+- [Java](./java/java.md)
 
-- [Java](./java.md)
+- [JavaScript](./javascript/javascript.md)
 
-- [Dart](./dart.md)
+- [Jupyter](./jupyter/jupyter.md)
 
-- [Php](./php.md)
+- [Markdown](./markdown/markdown.md)
 
-- [Sql](./sql.md)
+- [Matplotlib](./matplotlib/matplotlib.md)
 
-- [Git](./git.md)
+- [Mongoose](./mongoose/mongoose.md)
 
-- [Markdown](./markdown.md)
+- [Neuronale Netze](./neuronaleNetze/neuronaleNetze.md)
 
-- [Markdown mit Html](./htmlWiemarkdown.html)
+- [NodeJs](./node/node.md)
 
-- [Jupyter](./jupyter.md)
+- [Numpy](./numpy/numpy.md)
+
+- [PC](./pc/pc.md)
+
+- [Python](./python/python.md)
+
+- [Pytorch](./pytorch/pytorch.md)
+
+- [Php](./php/php.md)
+
+- [Sql](./sql/sql.md)
+
+- [Sonstiges](./sonstiges/sonstiges.md)
+
+- [VSCode](./vscode/vscode.md)
+
+- [VisualBasic](./vba/vba.md)
+
+- [Wolfram Alpha](./wolframAlpha/wolframAlpha.nd)
 
 
 
-- [Dokus](./docus.md)
+
+
+
+
+ 
 
 
  

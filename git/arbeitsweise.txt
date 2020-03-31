@@ -1,0 +1,30 @@
+GitHub = Facebook for Code
+---------
+3 Bereiche
+working directory - staging area - repo
+---------------------
+was im repo ist wird nicht wieder rückgängig gemacht. Das ist eine Einbahnstraße
+Es wird immer nur etwas hinzugefügt.
+---------------------
+git diff - vergleicht den Inhalt des working dirs mit der staging area
+-------
+commits sollten sein: atomic logical junks.
+Deswegen kann es machmal sinnvoll sein, nicht alle Änderungen in die
+staging area zu tun, sondern die Änderungen in getrennten Einheiten zu
+committen.
+--------
+wenn man ein remote hinzufügt, kann man das eigene repo an eine andere
+Maschine senden. z.B. man kann seinen aktuellen Status zur Cloud (nach GitHub
+schicken)
+---------
+master is the default-branch, wir stellen uns das vor wie ein pointer zu
+einem commit. master zeigt auf den letzten commit.
+Wenn wir commits hinzufügen, zeigt der aktive branch immer auf den letzten
+commit (der wird auch HEAD genannt)
+-------
+Wenn man einen neuen branch erstellt, dann zeigen der bisher aktive und der
+neue zunächst auf den selben commit. git show master, git show newbranch
+-------
+pull-request pädagogisch: peer discussion and feedback
+mit pull-request kann man zeilengenauen feedback geben. Auf das
++-Zeichen der Zeile klicken und dann dort feedback geben.

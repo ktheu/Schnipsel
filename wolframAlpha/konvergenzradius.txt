@@ -1,0 +1,4 @@
+Eingaben in Wolfram Alpha
+
+radius of convergence x^n/n, n
+radius of convergence (1+10/k)^k(z+3)^k,k

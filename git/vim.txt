@@ -1,0 +1,5 @@
+Wenn man beim Commit noch was schreiben muss, kommt der VIM Editor
+
+i  -  # jetzt kann man was einfügen
+ESC - # jetzt ist das einfügen zu Ende
+:wq, Enter # VIM verlassen

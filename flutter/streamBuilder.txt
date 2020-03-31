@@ -1,0 +1,31 @@
+Widget emailField() {
+    return StreamBuilder(
+      stream: bloc.email,
+      builder: (context, snapshot) {
+        return TextField(
+          onChanged: bloc.changeEmail,   // wenn was getippt wird, kommt ein event in den stream
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            hintText: 'you@example',
+            labelText: 'email Address',
+            errorText: snapshot.error,
+          ),
+        );
+      },
+    );
+  }
+
+  StreamBuilder ist ein Widget mit 2 Argumenten. Ein Stream, an den es angeschlossen
+  werden soll und eine builder Methode. IMmer wenn der StreamBuilder einen neues
+  Event in seinem Stream entdeckt, ruft er seine builder-Funktion.
+
+  snapshot ist ein Objekt das das enthält, was gerade entlang des streams kam. Wenn
+  der stream einen error enthält, dann ist der über snapshot.error aufrufbar.
+ 
+
+----------------------------
+  onChanged: bloc.changeEmail   ist dasselbe wie
+  onChanged: (newValue) {
+    bloc.changeEmail(newValue);
+    }
+--------------------------------

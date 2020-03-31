@@ -1,0 +1,5 @@
+c:\Program Files\Dart\dart-sdk\bin\
+
+c:\SonstigeProgramme\flutter\bin
+
+Systemvariable: DART_SDK     C:\Program Files\Dart\dart-sdk

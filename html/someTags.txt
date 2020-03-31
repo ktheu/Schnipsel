@@ -1,0 +1,18 @@
+hochstellen: <sup>text</sup>
+tieferlegen: <sub>text</sub>
+
+externes stylesheet einbinden
+<link rel="stylesheet" href="stylesheet.css">
+<link rel="stylesheet" href="../styles/n_kurs.css">
+
+link
+<a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+
+image
+<img src="adjazenzmatrix_01.png" , width="300">
+
+horizontale linie
+<hr>
+
+space
+&nbsp;&nbsp;&nbsp;

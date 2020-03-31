@@ -1,0 +1,29 @@
+Globalkey wird benutzt um Widgets, die man erzeugt hat, zu referenzieren
+und eine ihrer Methoden aufzurufen.
+Globalkey gibt uns ein Handle zu einem Widgets, das wir in einer der build-Methoden
+erzeugen. Die Referenz zu einem Widget kann man leider nicht in einer normalen
+Instanzvariablen speichern (?warum?)
+
+In dem Widget, in dem wir referenzieren möchten, erstellen wir eine
+Instanzvariable vom Typ Globalkey. Dies Variable wird dem Widget, das wir
+referenzieren möchten, als key zugeordnet.
+
+Wenn man eine Form referenzieren will, muss dem Formstate der key zugeordnet.
+
+Unterhalb von Widget A wird ein Form Widget B erzeugt.
+Widget A bekommt eine Instanzvariable:
+final formKey = GlobalKey<FormState>();
+
+Widget B bekommt diese Variable aus key zugeordnet
+
+child: Form(
+  key: formKey, ...
+
+mit formkey.currentState bekommt man dann eine Referenz auf den zur Form gehörenden
+aktuellen Formstate und kann dessen Methoden aufrufen.
+mit formkey.currentstate.reset(), formkey.currentstate.save(), formkey.currentstate.validate()
+können wir dann innerhalb von A aber außerhalb von B auf die Methoden von B zugreifen.
+
+Die Form ist ein ontainer für mehrere Eingabefelder, die validiert werden sollen.
+Der Form wird ein GlobalKey zugeordnet, der die Form eindeutig identifiziert. Der key
+wird benötigt, um die Validierung durchzuführen.

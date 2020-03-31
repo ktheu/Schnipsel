@@ -8,6 +8,21 @@ Bei der Verwendung von Anaconda, Python nicht nochmal separat installieren, ggf.
 Die Anaconda-Installation für einen einzelnen User geht nach: `c:\Users\khthe\Anaconda3\`. Dort ist
 das `base`-Environment. 
 
+Die Anaconda-Installation für alle User geht nach `c:\ProgramData\Anaconda3` (versteckter Ordner)
+
+Aufruf in cmd:
+```
+jupyter notebook --ip=localhost   
+
+```
+
+```
+conda update conda      # das in einem Anaconda-prompt, mit Administrator-Rechten
+conda -V                # Version
+conda update anaconda
+conda list anaconda$    # Anaconda Version
+```
+
 #### Empfehlung
 
 Um bei der Verwendung von VS-Code als IDE keine Probleme zu bekommen:
@@ -27,24 +42,14 @@ C:\ProgramData\Anaconda3\Library\bin
 C:\ProgramData\Anaconda3\Scripts
 ```
 
-
-Ein zusätzliche Environment z.b `tensorflow` kommt (vermutlich je nach conda-Version) in folgende Location:
-
-conda 4.7.12:
-```
-c:\Users\khthe\.conda\envs\tensorflow             
-c:\Users\khthe\.conda\envs\tensorflow\python.exe            # executor
-c:\Users\khthe\.conda\envs\tensorflow\lib\site-packages     # installierten packages
+Environments kommen in einen der beiden dirs:
 
 ```
-
-conda 4.8.0 
-```
-c:\Users\ProgramData\Anaconda3\envs                         
-c:\Users\ProgramData\Anaconda3\envs\tensorflow\python.exe          # executor
-c:\Users\ProgramData\Anaconda3\envs\tensorflow\lib\site-packages   # installierten packages
+c:\Users\khthe\.conda\envs\
+c:\Users\ProgramData\Anaconda3\envs  
 ```
 
+Den Ort sieht man, wenn man im Anaconda-Navigator auf das environment klickt.
 
 #### Tensorflow mit Anaconda 
 
@@ -74,7 +79,7 @@ Einstellungen: Zahnrad links unten, Settings, oben rechts neben dem Dreieck das 
 
 Den Eintrag `python.pythonPath` benötigt man nicht, da Python im Systempfad
 
-```javascript
+``` 
     "terminal.integrated.shell.windows":  "C:\\WINDOWS\\System32\\cmd.exe",
     "files.autoSave": "onFocusChange",
     "code-runner.clearPreviousOutput": true,

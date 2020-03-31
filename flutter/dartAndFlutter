@@ -1,0 +1,7 @@
+flutter create logon_bloc   // ein dir für ein Projekt anlegen
+flutter run                 // in dem Projektordner das Projekt ausführen.
+flutter packages get        // install dependencies
+code .                      // visual code im aktuellen ordner aufrufen
+
+
+import 'package:flutter/material.dart';

@@ -1,0 +1,95 @@
+Wenn ein Streamcontroller erzeugt wird, werden dadurch zwei Objekte
+erzeugt: der sink (order taker) und der stream (factory, where processing is done)
+Wenn wir Daten in den Stream werfen wollen, machen wir das immer via sink.
+
+import 'dart:async';
+
+class Cake {}
+
+class Order {
+  String type;
+  Order(this.type);
+}
+
+void main() {
+  final controller = StreamController();
+  final baker = StreamTransformer.fromHandlers(handleData: (cakeType, sink) {
+    if (cakeType == 'chocolate') {
+      sink.add(new Cake());
+    } else {
+      sink.addError('I cant bake that type.');
+    }
+  });
+  final order = Order('chocolate');
+  controller.sink.add(order);
+  controller.stream.map((order) => order.type).transform(baker).listen(
+      (cake) => print('Here is your cake'),
+      onError: (err) => print(err));
+}
+
+The StreamControllers sink.add function adds a new value to be processed by
+the stream.
+The map function of the stream looks at each value that comes in to the stream,
+does some processing on it, then returns it. (Order Inspector)
+The StreamTransformer looks at incoming values, does processing on them and
+then adds them back into the stream.
+
+Bei der map-Funktion hat man eine 1-1 Relation bei den einkommenden und
+ausgehenden Objekten. Der Transformer kann pro bearbeiteten Objekt mehrere Objekte
+in den Stream geben.
+
+Trotzdem sind beide insofern ähnlich: sie verbeiten Stream-Daten.
+Der sink bei handleData ist nicht der ursprüngliche, sonst würde da
+ja die Verarbeitung von vorne anfangen. Es ist ein sink der die Werte quasi dazwischen
+einfügt.
+
+Die listen-Funktion wird mit jedem Wert aufgerufen, der aus dem Stream rauskommt.
+------------------------------------------------------------------
+import 'dart:html';
+void main() {
+  final ButtonElement button = querySelector('button');
+
+  button.onClick
+      .timeout(new Duration(seconds: 1),
+          onTimeout: (sink) => sink.addError('Tooslow'))
+      .listen((event) {}, onError: (err) => print(err));
+}
+----------------------------------------------------------------------
+
+onClick gibt einen Stream von Events zurück.
+
+streams are all about time series of data - far easier to do some time-related
+stuff with streams.
+----------------------------------------------------------------------
+import 'dart:html';
+void main() {
+  final ButtonElement button = querySelector('button');
+  final InputElement input = querySelector('input');
+  button.onClick
+      .take(4)
+      .where((event) => input.value == 'banana')
+      .listen((event) => print('you got it'), onDone: () => print('nope'));
+}
+----------------------------------------------------------------------
+import 'dart:html';
+import 'dart:async';
+
+void main() {
+  final DivElement div = querySelector('div');
+  final InputElement input = querySelector('input');
+  final validator =
+      StreamTransformer.fromHandlers(handleData: (inputValue, sink) {
+    if (inputValue.contains('@')) {
+      sink.add(inputValue);
+    } else {
+      sink.addError('Enter a valid email');
+    }
+  });
+
+  input.onInput
+      .map((dynamic event) => event.target.value)
+      .transform(validator)
+      .listen((inputValue) => div.innerHtml = '',
+          onError: (err) => div.innerHtml = err);
+}
+---------------------------------------------------------------------------

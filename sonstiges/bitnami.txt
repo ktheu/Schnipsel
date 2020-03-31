@@ -1,0 +1,11 @@
+restart apache server
+sudo /opt/bitnami/ctlscript.sh restart apache
+
+zeitzone setzen
+sudo dpkg-reconfigure tzdata     # dann kommt ein panel
+
+change root-mysql password
+bitnami base-password in den VM-instance details  tT5YyLBkjYJU
+/opt/bitnami/mysql/bin/mysqladmin -p -u root password bitnami4711
+
+cd /tmp

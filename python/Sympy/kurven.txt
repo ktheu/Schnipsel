@@ -1,0 +1,7 @@
+from sympy import *
+t, x  = symbols('t x')
+f  = symbols('f', cls=Function)
+
+from sympy.geometry.curve import Curve
+a = Curve((2 + cos(t/2), 2 - cos(t/2)), (t, 0, 2*pi)).length
+print(a)

@@ -1,0 +1,156 @@
+BLOC will never have any reference of the Widgets in the UI Screen.
+The UI screen will only observe changes coming from BLOC class.
+
+
+What is BLOC Pattern?
+Its a state management system for Flutter recommended by Google developers.
+It helps in managing state and make access of data from a central place in your project.
+
+STREAMS or REACTIVE approach. In general terms, data will be flowing from the BLOC to the UI or from UI to the BLOC in the form of streams.
+
+Mit dem BlocPattern soll dieselbe Information für mehrere Widgets verfügbar gemacht werden.
+Mit nur Stateful Widgets ist es umständlich, Informationen über mehrere Widgets zu syncronisieren.
+
+BLOC = Business Logic Component: Alle Daten, alle Stati werden in dieser Einheit verwaltet.
+Es ist nicht zu einem speziellen Widget verbunden. Die veränderbaren Daten leben also außerhalb
+der Widget Hierarchie.
+
+Ein TextformField wird als Quelle eines Streams gesehen. Es gibt Widgets, die können einen
+Stream als Input nehmen (Stream Consuming Widgets)
+
+In den Bloc können Streams strömen und es gehen Streams heraus. Der Bloc ist eine Art
+Stream Transformer oder Map etc.
+
+Mit dem Bloc will man die in der Regel Stateful Widgets (z,B. Form) vermeiden.
+Als Eingabe verwendet man dann kein TextFormField sondern ein TextField.
+
+Einheit Abschnitt 14, 146.
+Bloc Design for Textfields A14,147
+--------------------------------------------------------------
+Der Bloc hat Datenfelder für jeden InputStream, den er verwaltet.
+Das Textfield ruft die Methode onChanged, wenn etwas geändert wird. Dadurch werfen
+wir etwas in einen Stream des Blocs, der verarbeitet das (z.B. validation) und das
+Ergebnis wird
+----------------------------
+import 'dart:async';
+
+class Bloc extends Object with Validators {
+
+  final _email = StreamController<String>();
+  final _password = StreamController<String>();
+
+  // Add data to stream
+  Stream<String> get email => _email.stream.transform(validateEmail);
+  Stream<String> get password => _password.stream.transform(validatePassword);
+
+  // Change data
+  Function(String) get changeEmail => _email.sink.add;
+  Function(String) get changePassword => _password.sink.add;
+
+  dispose() {
+    _email.close();
+    _password.close();
+  }
+}
+
+final bloc = Bloc();
+------------------------------------
+Man möchte auf den sink des email-Kontrollers nicht durch einen langen Ausdruck wie
+bloc.emailController.sink.add() zugreifen, sondern durch ein kürzeres
+bloc.changeEmail
+-----------------------------------------
+import 'dart:async';
+
+void main() {
+  final bloc = Bloc();
+  bloc.emailController.stream.listen((value) {print(value);});
+  bloc.emailController.sink.add('My new email');
+}
+
+class Bloc {
+  final emailController = StreamController<String>();
+}
+----------------------------------------------------------
+Mit getter kann man wie ein neues Datenfeld erzeugen.
+
+import 'dart:async';
+
+void main() {
+  final bloc = Bloc();
+  bloc.email.listen((value) {print(value);});
+  bloc.changeEmail('My new email');
+}
+
+class Bloc {
+  final emailController = StreamController<String>();
+  get changeEmail => emailController.sink.add;
+  get email => emailController.stream;
+}
+---------------------------------------------------------
+Innerhalb eines Blocs werden für jeden StreamController ein Paar getters erzeugt.
+Eine für den sink und eine für den stream. In der Regel wird man den Rückgabetyp
+ergänzen.
+class Bloc {
+  final emailController = StreamController<String>();
+  Function(String) get changeEmail => emailController.sink.add;
+  Stream<String> get email => emailController.stream;
+}
+------------------------------------------------------
+
+import 'dart:async';
+import 'validators.dart';
+
+// um ein Mixin mit with zu gebrauchen muss man ein extend haben
+class Bloc extends Object with Validators {
+
+  final _email = StreamController<String>();
+  final _password = StreamController<String>();
+
+  // Add data to stream
+  Stream<String> get email => _email.stream.transform(validateEmail);
+  Stream<String> get password => _password.stream.transform(validatePassword);
+
+  // Change data
+  Function(String) get changeEmail => _email.sink.add;
+  Function(String) get changePassword => _password.sink.add;
+
+  dispose() {  // nur damit dart happy ist. Damit irgendwo ein close steht.
+    _email.close();
+    _password.close();
+  }
+}
+
+
+import 'dart:async';
+
+class Validators {
+  final validateEmail =
+      StreamTransformer<String, String>.fromHandlers(handleData: (email, sink) {
+    if (email.contains('@')) {
+      sink.add(email);
+    } else {
+      sink.addError('Enter a valid email');
+    }
+  });
+
+  final validatePassword = StreamTransformer<String, String>.fromHandlers(
+      handleData: (password, sink) {
+    if (password.length > 3) {
+      sink.add(password);
+    } else {
+      sink.addError('Password must be at least 4 characters');
+    }
+  });
+}
+
+----------------------------------------------------
+Apply a Bloc gibts zwei Möglichkeiten: Single Global Instance
+(vermutlich für kleinere Anwendungen) und Scoped Instance
+
+Single Global Instance: Eine Block-Instanz wird für die gesamte Anwendung verwendet.
+Scoped Instance: Verschiedene Block-Instanzen sind für unterschiedliche Bereiche
+des Widget-Baums zuständig. Dazu wird der Block in einem Widget erzeugt und dann können
+alle unterhalb darauf zugreifen.
+-------------------------------------------------------
+StreamController erzeugt einen single subscriber stream
+StreamController.brodcast erzeugt einen, der mehrere Listener haben kann.

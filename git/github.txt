@@ -1,0 +1,4 @@
+:smiley:   für eine smiley
+**bold**,  _italic_,  oder b oder i key
+
+? für keyboard shortcuts

@@ -1,0 +1,7 @@
+Listview kann nicht einfach unterhalb eines anderen Widget stehen.
+Man muss es in einen Container wrappen, dem man eine height-Attribut gibt.
+Am besten aber nicht mit einem Container, sondern mit Expandend, der nimmt
+sich den Platz der noch übrig ist.
+
+Wenn man nur weniger Elemente zeigen will, kann man ListView(children: ..)
+benutzen. Wenn es viele Elemente sind, sollte man ListView.builder(...) benutzen.

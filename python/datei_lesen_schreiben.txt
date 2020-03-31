@@ -1,0 +1,2 @@
+f = open(indata,"r",encoding='utf-8')
+fout = open(outdata,"w",encoding='utf-8')

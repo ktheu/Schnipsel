@@ -1,0 +1,12 @@
+Flutter is declarative. This means that Flutter builds its user interface to reflect the current state of your app:
+UI = f(state)    UI = Userinterface, f = Menge der build-Methoden
+
+When the state of your app changes (for example, the user flips a switch in the settings screen), you change the state, and that triggers a redraw of the user interface. There is no imperative changing of the UI itself (like widget.setText) — you change the state, and the UI rebuilds from scratch.
+
+So a more useful definition of state is “whatever data you need in order to rebuild your UI at any moment in time”. Second, the state that you do manage yourself can be separated into two conceptual types: ephemeral state and app state.
+
+Ephemeral state (sometimes called UI state or local state) is the state you can neatly contain in a single widget.
+
+https://flutter.dev/docs/development/data-and-backend/state-mgmt/ephemeral-vs-app 
+
+State that is not ephemeral, that you want to share across many parts of your app, and that you want to keep between user sessions — is what we call application state (sometimes also called shared state).

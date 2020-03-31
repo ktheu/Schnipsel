@@ -1,0 +1,26 @@
+Dart is a true object-oriented language, so even functions are objects and have a type, Function.
+This means that functions can be assigned to variables or passed as arguments to other functions.
+
+bool isNoble(int atomicNumber) {
+  return _nobleGases[atomicNumber] != null;
+}
+----------------------------------------------
+Although Effective Dart recommends type annotations for public APIs, the function still works if you omit the types:
+
+isNoble(atomicNumber) {
+  return _nobleGases[atomicNumber] != null;
+}
+------------------------------------------------
+For functions that contain just one expression, you can use a shorthand syntax:
+bool isNoble(int atomicNumber) => _nobleGases[atomicNumber] != null;
+
+The => expr syntax is a shorthand for { return expr; }. The => notation is sometimes referred to as arrow syntax.
+-------------------------------------------------
+When calling a function, you can specify named parameters using paramName: value. For example:
+enableFlags(bold: true, hidden: false);
+
+When defining a function, use {param1, param2, …} to specify named parameters:
+void enableFlags({bool bold, bool hidden}) {...}
+
+You can annotate a named parameter in any Dart code (not just Flutter)
+ with @required to indicate that it is a required parameter. For example:

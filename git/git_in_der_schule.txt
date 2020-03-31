@@ -1,0 +1,13 @@
+Akzeptiere Einladung zur Organisation Inf42Tools
+Akzeptiere Einladung zur Zusammenarbeit infotrainer
+
+- Das Repo aus Inf42Tools in ein eigenes Repo forken
+- Mit clone or download, open in desktop das geforkte repo auf den
+  local clonen.
+- Dann einen neuen branch erstellen: branchneu, dort
+     Änderungen machen commited und nach Github pushen
+- pull request stellen
+- In dem pull request wird ein review gemacht, der evtl weitere
+     Änderungen erfordert. Die alle in dem neuen branch machen und
+     wieder nach oben pushen.
+     

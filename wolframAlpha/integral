@@ -1,0 +1,7 @@
+integral -sin(ln(x^2))/x for x from 1 to e^(sqrt(pi/2))
+
+-0.90254641278168966452326272072600216559129779252352094018...
+
+integral (5e^(3x)+e^(2x)+3e^x+1)/(e^(3x)+e^x)
+
+integral (e^(-x)cos(5x))

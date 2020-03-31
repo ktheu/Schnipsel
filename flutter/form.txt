@@ -1,0 +1,115 @@
+The Form Widget acts as a container to group and validate multiple form fields.
+
+When we create the form, we’ll also need to provide a GlobalKey.
+This will uniquely identify the Form that we’re working with, and will allow us to validate the form in a later step.
+
+Using a GlobalKey is the recommended way to access a form.
+
+https://flutter.dev/docs/cookbook/forms/validation
+
+class GGT extends StatefulWidget {
+  State<StatefulWidget> createState() {
+    return GGTState();
+  }
+}
+
+class GGTState extends State<GGT> {
+  final formKey = GlobalKey<FormState>();
+  var txt = new TextEditingController();
+
+  void calculate() {
+    if (formKey.currentState.validate()) {
+      formKey.currentState.save();
+
+      setState(() {
+        txt.text = resulttxt;
+      });
+
+    }
+  }
+
+  Widget build(context) {
+    return Scaffold(
+      body: Container(
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              Container(margin: EdgeInsets.only(top: 25.0)),
+              new Text('Berechnen des größten gemeinsamen Teilers'),
+              Container(margin: EdgeInsets.only(top: 25.0)),
+              indata1(),
+              indata2(),
+              Container(margin: EdgeInsets.only(top: 25.0)),
+              TextField(
+                controller: txt,
+                enabled: false,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget indata1() {
+    return TextFormField(
+      focusNode: nodeOne,
+      textInputAction: TextInputAction.next,
+      onFieldSubmitted: (term) {
+        nodeOne.unfocus();
+        FocusScope.of(context).requestFocus(nodeTwo);
+      },
+      onSaved: (String value) {
+        in1 = value;
+      },
+      keyboardType: TextInputType.number,
+      validator: (String value) {
+        if (!isNumeric(value)) {
+          return 'Please enter valid number';
+        }
+        ;
+      },
+      decoration: InputDecoration(
+        labelText: 'Eingabe1',
+        hintText: 'positive ganze Zahl',
+      ),
+    );
+  }
+
+  Widget indata2() {
+    return TextFormField(
+      textInputAction: TextInputAction.done,
+      focusNode: nodeTwo,
+      onFieldSubmitted: (term) {
+        nodeOne.unfocus();
+        calculate();
+      },
+      onSaved: (String value) {
+        in2 = value;
+      },
+      keyboardType: TextInputType.number,
+      validator: (String value) {
+        if (!isNumeric(value)) {
+          return 'Please enter valid number';
+        }
+        ;
+      },
+      decoration: InputDecoration(
+        labelText: 'Eingabe2',
+        hintText: 'positive ganze Zahl',
+      ),
+    );
+  }
+
+  int ggt(int a, int b) {
+    while (a != b) {
+      if (a > b) {
+        a = a - b;
+      } else {
+        b = b - a;
+      }
+    }
+    return a;
+  }
+}
