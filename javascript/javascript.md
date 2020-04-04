@@ -1,8 +1,14 @@
 ### Javascript  
 
+- [Maps](./maps.md)
+
+- [Sets](./sets.md)
+
+- [Debug](./debug.md)
+
 #### Allgemeines
 ```
-console.log(typeof 'blubber');  // Typ einer Variablen
+console.log(typeof a);    // Typ einer Variablen
 
 let x, y;
 let a = 1; b = 2;
@@ -89,17 +95,9 @@ for (let i = allids.length - 1; i > 0; i--) {
 }
 
 ```
-#### Maps _[doc](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Map)_
 
-```
-let m = new Map();
-if (m.has(k)) ...     // ist k Schlüssel in m?
-m.set(k,v);           // setzen eines key-value Paares
-let v = m.get(k);
 
-for(let k of m.keys()) ...   // durch alle Schlüssel laufen
 
-```
 
 
 #### Functions _[doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)_
