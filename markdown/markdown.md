@@ -34,8 +34,11 @@ mit Strg M, Strg C
 
 ```  
 
+Eine Zeile mit einer Zahl 42 beginnen, ohne dass diese eingerückt wird: ein unsichtbares Zeichen davor schreiben
+```
+&#8291;42
 
-
+```
 
 #### Link
 

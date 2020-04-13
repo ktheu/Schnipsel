@@ -4,33 +4,17 @@
 
 [Itertools](./itertools.md)
 
+[Dateizugriff](./dateizugriff.md)
+
+[Regex](./regex.md)
+
+[List](./list.md)
 
 
-### Einlesen von Daten
 
-Mehrere Zahlen, die in einer Zeile stehen.
 
-```
-width, height = [int(k) for k in f.readline().split()]
-width, height = [int(k) for k in input().split()]
-```
-oder so:
-```
-width, height = map(int, f.readline().split())
-width, height = map(int, input().split())
-```
 
-#### Zahlen in eine Liste einlesen, eine Zeile pro Zahl
 
-```
-heights = [int(input()) for x in range(8)]
-```
-
-#### Zahlen in eine Liste einlesen und noch was hinzufügen
-```
-a = [0, *map(int, input().split()), w]   # oder
-a = [0] + map(int, input().split()) + [w]
-```
 
 ### Listen
 
