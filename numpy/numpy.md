@@ -68,3 +68,41 @@ np.random.shuffle(a)
 
 #### Arange
 a = np.arange(100)      # Array von 0 bis 99
+
+
+### Daten einlesen
+
+Inhalt des Textfiles:
+
+
+```
+XNOR input data
+1.0 1.0
+1.0 0.0
+0.0 1.0
+0.0 0.0
+
+```
+
+```
+filename = './xnorinput.txt'
+
+with open(filename) as file:
+    content = file.readlines()
+    # remove first line
+    content = content[1:]
+    m = np.loadtxt(content)
+
+print(m)
+
+``` 
+
+Ausgabe:
+
+```
+[[1. 1.]
+ [1. 0.]
+ [0. 1.]
+ [0. 0.]]
+
+```
