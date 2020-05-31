@@ -38,3 +38,4 @@ $ git push -f
 ### Github Pages
 
 Wenn eine Seite über Github-Pages erreicht werden soll, muss sie in dem branch gh-pages stehen.
+gh-pages sollte dann der default page sein und master sollte man am besten löschen
