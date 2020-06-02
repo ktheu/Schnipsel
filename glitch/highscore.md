@@ -71,6 +71,7 @@ app.listen(process.env.PORT);
 ### views/index.html
 
 ```
+
 <html>
   <head>
     <title>Highscore-Demo</title>
@@ -117,6 +118,9 @@ app.listen(process.env.PORT);
           case "PLAY":
             play();
             break;
+          case "GAMEOVER":
+            gameover();
+            break;
           case "HIGHSCORE":
             highscore();
             break;
@@ -136,18 +140,33 @@ app.listen(process.env.PORT);
 
       function welcome() {
         textAlign(CENTER, CENTER);
+        textSize(14);
         text("WELCOME to GAME", 0, 30, width);
         text(highscoreText, 0, 60, width);
         let regeln =
-          "Press ENTER to start\n\nClick mouse to get a random score";
+          "Press ENTER to start";
         text(regeln, 0, 200, width);
       }
 
-      function play() {
-        text("Your Score: " + score, 0, 200, width);
+      function gameover() {
         if (score > hsmin) {
           state = "HIGHSCORE";
         }
+        else {
+          text(highscoreText, 0, 60, width);
+          text("Your Score: " + score, 0, 200, width);
+          text("Press r to restart", 0, 260, width);
+        }
+      }
+
+      function play() {
+        score = int(random(1000));
+        fill(0);
+        textSize(30);
+        textAlign(CENTER, CENTER);
+        text(score, 0, 100, width);
+        textSize(14);
+        text("Hit space to stop",0,260,width);
       }
 
       function highscore() {
@@ -158,7 +177,7 @@ app.listen(process.env.PORT);
 
       function newhighscore() {
         text(highscoreText, 0, 60, width);
-        text("Press r to restart, q to quit", 0, 260, width);
+        text("Press r to restart", 0, 260, width);
       }
 
       function wait() {
@@ -186,11 +205,6 @@ app.listen(process.env.PORT);
         );
       }
 
-      function mousePressed() {
-        if (state === "PLAY") {
-          score = Math.floor(Math.random() * (1000 - hsmin + 1)) + hsmin;
-        }
-      }
 
       function keyTyped() {
         if (state === "HIGHSCORE") {
@@ -204,6 +218,19 @@ app.listen(process.env.PORT);
             state = "PLAY";
           }
         }
+
+        if (state === "PLAY") {
+          if (key === ' ') {
+            state = "GAMEOVER";
+          }
+        }
+
+      if (state === "GAMEOVER") {
+        if (key === 'r') {
+          init0();
+          state = 'PLAY';
+        }
+      }
 
         if (state === "HIGHSCORE") {
           if (keyCode === BACKSPACE) name = name.substr(0, name.length - 1);
@@ -228,5 +255,6 @@ app.listen(process.env.PORT);
 
   <body></body>
 </html>
+
 
 ```
