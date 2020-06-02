@@ -3,7 +3,7 @@
 ### Allgemeines
 
 server.js wird immer wieder automatisch gestartet. Deswegen ist es wichtig, dass am Ende ein
-*listen* steht. Sonst ist es wie eine Loop.
+*listen* steht. Sonst ist es wie eine Loop. Console.logs in server.js erscheint im Log (auf Glitch)
 
 
 ### nedb-Datenbank anlegen und füllen

@@ -6,6 +6,8 @@
 
 - [Debug](./debug.md)
 
+- [Nedb](./nedb.md)
+
 #### Allgemeines
 ```
 console.log(typeof a);    // Typ einer Variablen
