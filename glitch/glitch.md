@@ -41,3 +41,5 @@ Edit: H nach oben links, 20dd - 20 Zeilen löschen
 
 ```
 Nur Ansehen mit `cat highscore.db`
+
+
