@@ -24,6 +24,8 @@
 
 - [Jupyter](./jupyter/jupyter.md)
 
+- [Glitch](./glitch/glitch.md)
+
 - [Markdown](./markdown/markdown.md)
 
 - [Matplotlib](./matplotlib/matplotlib.md)

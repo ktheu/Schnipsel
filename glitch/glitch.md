@@ -1,5 +1,7 @@
 ## Glitch
 
+[Highscore-Muster](./highscore.md)
+
 ### Allgemeines
 
 server.js wird immer wieder automatisch gestartet. Deswegen ist es wichtig, dass am Ende ein
