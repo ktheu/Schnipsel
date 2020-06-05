@@ -138,55 +138,6 @@ app.listen(process.env.PORT);
         name = "";
       }
 
-      function welcome() {
-        textAlign(CENTER, CENTER);
-        textSize(14);
-        text("WELCOME to GAME", 0, 30, width);
-        text(highscoreText, 0, 60, width);
-        let regeln =
-          "Press ENTER to start";
-        text(regeln, 0, 200, width);
-      }
-
-      function gameover() {
-        if (score > hsmin) {
-          state = "HIGHSCORE";
-        }
-        else {
-          text(highscoreText, 0, 60, width);
-          text("Your Score: " + score, 0, 200, width);
-          text("Press r to restart", 0, 260, width);
-        }
-      }
-
-      function play() {
-        score = int(random(1000));
-        fill(0);
-        textSize(30);
-        textAlign(CENTER, CENTER);
-        text(score, 0, 100, width);
-        textSize(14);
-        text("Hit space to stop",0,260,width);
-      }
-
-      function highscore() {
-        text(highscoreText, 0, 60, width);
-        text("Your Score: " + score, 0, 200, width);
-        text("Your Name: " + name, 0, 230, width);
-      }
-
-      function newhighscore() {
-        text(highscoreText, 0, 60, width);
-        text("Press r to restart", 0, 260, width);
-      }
-
-      function wait() {
-        text(highscoreText, 0, 60, width);
-        text("Your Score: " + score, 0, 200, width);
-        text("Your Name: " + name, 0, 230, width);
-        text("... updating database", 0, 260, width);
-      }
-
       function getHighscore() {
         httpGet(
           "/highscore",
@@ -205,6 +156,61 @@ app.listen(process.env.PORT);
         );
       }
 
+      function scoreBackground() {
+        background(100);
+        textSize(30);
+        textAlign(CENTER, CENTER);
+        text(score, 0, 170, width);
+
+        textAlign(CENTER, CENTER);
+        fill(200);
+        textSize(14);
+        text(highscoreText, 0, 60, width);
+      }
+
+      function welcome() {
+        scoreBackground();
+        text("Welcome to HighNumber", 0, 30, width);
+        text("Start with ENTER", 0, 200, width);
+      }
+
+      function play() {
+        background(100);
+        score = int(random(1000));
+        textSize(30);
+        textAlign(CENTER, CENTER);
+        text(score, 0, 170, width);
+        textSize(14);
+        text("Hit space to stop", 0, 260, width);
+      }
+
+      function gameover() {
+        if (score > hsmin) {
+          state = "HIGHSCORE";
+        } else {
+          scoreBackground();
+          text("Your score: " + score, 0, 230, width);
+          text("Press r to restart", 0, 260, width);
+        }
+      }
+
+      function highscore() {
+        scoreBackground();
+        text("Your score: " + score, 0, 230, width);
+        text("Your name: " + name, 0, 260, width);
+      }
+
+      function wait() {
+        scoreBackground();
+        text("Your Score: " + score, 0, 230, width);
+        text("Your Name: " + name, 0, 250, width);
+        text("... updating database", 0, 270, width);
+      }
+
+      function newhighscore() {
+        scoreBackground();
+        text("Press r to restart", 0, 260, width);
+      }
 
       function keyTyped() {
         if (state === "HIGHSCORE") {
@@ -220,17 +226,17 @@ app.listen(process.env.PORT);
         }
 
         if (state === "PLAY") {
-          if (key === ' ') {
+          if (key === " ") {
             state = "GAMEOVER";
           }
         }
 
-      if (state === "GAMEOVER") {
-        if (key === 'r') {
-          init0();
-          state = 'PLAY';
+        if (state === "GAMEOVER" || state === "NEWHIGHSCORE") {
+          if (key === "r") {
+            init0();
+            state = "PLAY";
+          }
         }
-      }
 
         if (state === "HIGHSCORE") {
           if (keyCode === BACKSPACE) name = name.substr(0, name.length - 1);
@@ -240,13 +246,6 @@ app.listen(process.env.PORT);
               getHighscore();
               state = "NEWHIGHSCORE";
             });
-          }
-        }
-
-        if (state === "NEWHIGHSCORE") {
-          if (key === "r") {
-            init0();
-            state = "PLAY";
           }
         }
       }

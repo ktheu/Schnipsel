@@ -14,6 +14,8 @@
 
 [NLP](./nlp.md)
 
+[Pandas](./pandas.md)
+
 
 ```
 
