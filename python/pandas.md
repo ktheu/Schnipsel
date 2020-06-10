@@ -56,7 +56,19 @@ df.iloc[[3,12,20]]    # Liste mit Indizes
  
 df.iloc[0,4]          # in Zeile 0, Spalte 4 selektieren
 df.iloc[:,4]          # Spalte 4
+```
 
+Alle Zeilen, bei denen die Spalte CPC mit 'Y' beginnt
+```
+df.loc[df.CPC.str.startswith('Y')]
+
+# setzt den Index neu und fügt den alten index nicht als Spalte ein
+df.loc[df.CPC.str.startswith('Y')].reset_index(drop=True) 
+
+sel = df.psn_name.str.contains('MERCEDES|DAIMLER')  
+df.loc[sel]
+
+```
 
 ```
 summer = pd.read_csv("summer.csv", index_col="Athlete")  # index labels müssen nicht unique sein
@@ -114,10 +126,13 @@ df.sort_values(na_position = "last")
 ```
 
 ### Manipulating Data in Series
+
+```
 sales["Sun"] = 0           # ein Element - alle Duplikate werden überschrieben
 sales.iloc[3] = 14         # ein Element - auch der Wert in dem originalen dataframe wird geändert !
 sales = (sales / 1.1).round(2)     # vectorisierte Operation
 
+```
 ## Pandas Index Object
 
 In vielen Fällen ist des nützlich ein label-based Index zu haben, um label-based selektieren zu ermöglichen.
@@ -134,9 +149,11 @@ pd.index.name = "Name"  # Namen des Index kann man setzen
 pd.columns = aList      # die Anzahl müssen stimmen
 ```
 
+```
 summer.rename(index = {"a":"new"},inplace=True)
 summer.rename(columns = {"a":"anew", "b":"bnew"},inplace=True)
 
+```
 ## Filter DataFrames
 
 ```
