@@ -16,3 +16,8 @@ oder: suchen nach erweiterte Systemeinstellungen
 #### Große Dateien finden
 
 Windows+E, auf das Laufwerk/Ordner klicken, den man durchsuchen will, Str-F, bei den Suchoptionen Größe auswählen
+
+
+#### Überschreiben Modus
+
+Schaltet man durch Umsch+Einfg (aber das Einfg bei der 0) ein/aus.

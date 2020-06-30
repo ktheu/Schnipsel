@@ -169,6 +169,7 @@ mask1 & mask2, mask1 | mask2
 summer.loc[summer.YEAR >= 1992]
 summer.loc[summer.YEAR.between(1960,1969,inclusive=True)]
 summer.loc[summer.YEAR.isin([1972,1996])]
+tmp = df.loc[(df.year >= start) & (df.year <= end)]    # die Klammern braucht man, weil & stärker bindet
 
 (titanic.age == 80).any()      # checked ob einer in der series 80 ist
 all(), 
