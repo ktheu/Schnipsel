@@ -5,7 +5,6 @@
 Pfadnamen kopieren: `Strg-Shift + Rechte Maus `
 
 
-
 #### Systemvariablen bearbeiten:
 
 ```
@@ -20,4 +19,22 @@ Windows+E, auf das Laufwerk/Ordner klicken, den man durchsuchen will, Str-F, bei
 
 #### Überschreiben Modus
 
-Schaltet man durch Umsch+Einfg (aber das Einfg bei der 0) ein/aus.
+Schaltet man durch fn+0 ein/aus.
+
+
+#### Drucker hinzufügen
+
+```
+Lokalen Drucker oder Netzwerkdrucker, neuen Anschluss erstellen: TCPIP Port
+Host SEC0015997062CD.fritz.box, Samsung Universal Printer Driver 3
+```
+
+#### Zwei Bildschirme
+```
+Den erweiterten Bildschirm nach links: Systemsteuerung - Darstellung und Anpassung  - Anzeige -  Anzeigeeinstellung ändern die zwei Bildschirme tauschen
+```
+
+#### Bildschirmausgabe bearbeiten
+```
+Windows + P
+```

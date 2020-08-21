@@ -19,3 +19,32 @@ Shift-2xTab - docString mit Parameter
 Shift-3xTab - doc Fenster bleibt 10sec an
 Shift-4xTab - getrenntes doc-Fenster
 ```
+
+
+## HTML ausführen
+
+```
+from IPython.display import display, HTML
+display(HTML('<h1>Hello World</h1>'))
+```
+
+## Breite der Ausgabe
+Hängt im wesentlichen von der Komponente, ab die die Ausgabe macht.
+
+```
+pd.set_option('display.width', 1000)   # Pandas
+
+```
+
+## Pandas DataFrame ausgeben, wie wenn df als letzte Anweisung steht
+```
+from IPython.display import display, HTML
+display(HTML(df.to_html()))
+```
+
+## speichert anything in das entsprechende file
+```
+%%writefile something.py
+anython
+
+```

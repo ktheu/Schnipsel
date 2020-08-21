@@ -2,41 +2,51 @@
 
 Es gibt drei Hauptobjekttypen: Index, Series, Dataframe
 
-
-
-Attributes
-
-```
-df.shape
-df.size
-df.index
-df.columns
-```
-
-Methods
-
-```
-df.head(), df.head(2)
-df.tail()
-df.info()
-df.describe()  # statistische Informationen
-df.min()       # Minimum in jeder Spalte
-df.mean()
-df.mean().sort_values()
-df.mean().sort_values().head(2)
-titanic.sort_values(by = ['age', 'pclass'], ascending= [False, True])
-titanic.sort_values(by = ['age', 'pclass'], ignore_index = True) # der range-Index wird neu aufgebaut und nicht mitsortiert.
-df.age.unique(),
-df.nunique()     # number of unique values in each column
-titanic.nlargest(n=5,columns = 'fare')   # die 5 passagiere mit den höchsten fares
-titanic.nsmallest(n=5,columns = 'age')   # die 5 jüngsten passagiere
-
-```
 Optionen
 ```
 pd.options.display.max_rows = 400
 
 ```
+
+Attributes
+
+```
+df.shape, df.size, df.index, df.columns
+```
+
+Dataframe erstellen mit Spalten c1, c2 und Index-Spalte idx
+```
+df = pd.DataFrame()
+df['c1'] = list([10,20,20,20,30])
+df['c2'] = list([100,200,300,400,500]) 
+df.index.name = 'idx'  
+```
+
+Methods
+
+```
+df.head(), df.head(2), df.tail()
+df.info()
+df.describe()  # statistische Informationen
+df.min(), df.mean()      # Minimum, Mean jeder Spalte
+df.mean().sort_values()
+df.mean().sort_values().head(2)
+df.nunique()     # number of unique values in each column
+df.c1.unique()   # die verschiedenen werte der Spalte c1 als np-array
+```
+
+Sortieren
+
+```
+df.sort_values(by=['c1', 'c2'], ascending = [False, True])      
+titanic.sort_values(by = ['age', 'pclass'], ascending= [False, True])
+titanic.sort_values(by = ['age', 'pclass'], ignore_index = True) # der range-Index wird neu aufgebaut und nicht mitsortiert.
+ 
+titanic.nlargest(n=5,columns = 'fare')   # die 5 passagiere mit den höchsten fares
+titanic.nsmallest(n=5,columns = 'age')   # die 5 jüngsten passagiere
+
+```
+
 Spalten selektieren
 
 ```

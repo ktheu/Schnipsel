@@ -93,16 +93,3 @@ Den Eintrag `python.pythonPath` benötigt man nicht, da Python im Systempfad
 
  Mit `Strg+Alt+N` führt der Code-Runner dann das aktuelle Python-Programm aus.
  Unten links an dem blauen Band kann man das Python-Environment auswählen.
-
-
- #### Installation line-profiler
-
-Dazu den Anaconda-Prompt als Administrator öffnen
-```
-conda install -c anaconda line_profiler
-
-```
-
-```
-conda list                 # alle installierten packages anlisten
-```

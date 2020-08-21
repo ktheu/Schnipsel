@@ -59,6 +59,13 @@ a.unshift(7);               // am Anfang was anhängen
 
 
 ```
+a = [2,3];
+a.includes(2);
+
+```
+
+
+```
 b = a.map(x => 2*x)
 b = a.slice()     // copy
 b = [...a]        // copy mit Spread-Operator
