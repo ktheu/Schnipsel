@@ -1,8 +1,14 @@
 ### Javascript  
 
+- [Strings](./strings.md)
+
+- [Arrays](./arrays.md)
+
 - [Maps](./maps.md)
 
 - [Sets](./sets.md)
+
+- [Graphen](./graphen.md)
 
 - [Debug](./debug.md)
 
@@ -11,9 +17,53 @@
 #### Allgemeines
 ```
 console.log(typeof a);    // Typ einer Variablen
+console.table(a);         // tabellarische Ausgabe
+a = null;                 // entspricht None
 
 let x, y;
 let a = 1; b = 2;
+```
+
+#### Modulo 
+Achtung, der Modulo-Operator gibt einen negativen Rest zurück.
+In der Zahlentheorie ist ein Rest auch bei negativen Zahlen immer positiv
+
+```
+-10 % 6 --> -4  # erwartet wird +2
+```
+Besser diese Funktion nutzen:
+```
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
+```
+
+#### Mehrere Werte mit Funktion zurückgeben
+
+```
+function myfunc() {}
+    return [3, 4, 6];
+}
+
+const [a, b, c] = myfunc();
+
+```
+#### Datenstrukturen
+
+Eine Queue mit einem Array
+```
+a = []
+a.push(3)
+x = a.shift()
+```
+
+#### Quersumme 
+
+```
+a = s.split('1234')
+let x = a.reduce((x,y) => x + parseInt(y),0);   // Quersumme
+
 ```
 
 #### Einlesen von Daten
@@ -45,69 +95,6 @@ let min = 5;
 let max = 10;
 let  x = Math.floor(Math.random() * (max - min + 1)) + min;
 ```
-
-
-#### Arrays _[doc](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array)_
-
-Arrays erzeugen
-```
-const a = [1,2];
-a = new Array(5).fill(0);   // Länge 5, mit 0 initialisiert
-a.push(4);                  // am Ende was anhängen
-a.unshift(7);               // am Anfang was anhängen
-```
-
-
-```
-a = [2,3];
-a.includes(2);
-
-```
-
-
-```
-b = a.map(x => 2*x)
-b = a.slice()     // copy
-b = [...a]        // copy mit Spread-Operator
-```
-
-Durch ein Array laufen
-```
-a = [1,2,3]
-for (let i = 0; i < a.length; i++) {
-  console.log(a[i]);
-}
- 
-a.forEach(function(x) {
-  console.log(x);
-});
-
-a.forEach((x) => console.log(x));
-
-for (let x of a) {
-  console.log(x);
-}
-```
-Array Destructuring
-```
-[a1, a2] = a;  
-
-```
-
-Shuffle Array nach Fisher-Yates
-```
-for (let i = allids.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * i)
-    const temp = allids[i]
-    allids[i] = allids[j]
-    allids[j] = temp
-}
-
-```
-
-
-
-
 
 #### Functions _[doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)_
 

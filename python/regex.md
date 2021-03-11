@@ -104,7 +104,12 @@ for m in re.finditer(regex,text):
 
 ```
 
+#### Bestimmte Zeichen aus einem String eliminieren:
 
+```
+' '.join(re.findall('[^!.? ]+',test_phrase))
+
+```
 #### re-Funktionen
 
 ```

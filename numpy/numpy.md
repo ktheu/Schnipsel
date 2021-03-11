@@ -2,6 +2,14 @@
 
 [Numpy Tutorial Stanford CS231](http://cs231n.github.io/python-numpy-tutorial/)
 
+### Options 
+
+Die wissenschaftliche Notation wird durch zwei Dezimalstellen ersetzt.
+```
+np.set_printoptions(precision=2, suppress= True)
+np.set_printoptions(formatter={'float': '{: 0.1f}'.format},suppress= True)
+
+```
 ### 
 
 `np.random.randn()`  erzeugt eine Zufallszahl aus der Normalverteilung mit Mittelwert 0 und Standardabweichung 1.
@@ -13,6 +21,7 @@
 a = np.arange(100)         # Array von 0 bis 99
 np.random.shuffle(a)       # Array mischen (in situ)
 a = np.random.randn(5)         # ein Array aus 5 Zufallszahlen, 0-1-normalverteilt 
+np.isin(sample, pop)       # sind die Elemente von sample in pop enthalten?
 
 ```
 

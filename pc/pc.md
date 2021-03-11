@@ -38,3 +38,9 @@ Den erweiterten Bildschirm nach links: Systemsteuerung - Darstellung und Anpassu
 ```
 Windows + P
 ```
+
+#### Sytem-Tuning mit Boardmitteln
+grafische Effekte reduzieren:
+```
+Windows + R, Sysdm.cpl, Erweitert, Einstellungen, Für optimale Leistung anpassen.
+```

@@ -23,6 +23,19 @@ conda update anaconda
 conda list anaconda$    # Anaconda Version
 ```
 
+Das base-Environment auf 3.8 updaten:
+```
+conda install python=3.8
+conda env remove -n tensorflow    # das Environment tensorflow removen
+
+```
+Die verfügbaren Python-Versionen listen
+
+```
+conda search python
+
+```
+
 #### Empfehlung
 
 Um bei der Verwendung von VS-Code als IDE keine Probleme zu bekommen:
@@ -105,4 +118,10 @@ conda install -c anaconda line_profiler
 
 ```
 conda list                 # alle installierten packages anlisten
+```
+
+Python 3.9 installiert in:
+
+```
+C:\Users\khthe\AppData\Local\Programs\Python\Python39
 ```

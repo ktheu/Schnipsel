@@ -57,7 +57,8 @@ git fetch           # wenn auf Github handish editiert und commited wurde,
 git show master     # zeigt, auf welchen commit der master-branch zeigt.
 git branch          # zeigt alle branches, der aktive hat den Stern
 git branch versuch  # neuen branch erstellen
-git branch -d the_local_branch
+git branch -d the_local_branch   # delete branch
+
 git branch planet master^   # erstelle einen branch, der auf den commit zeigt: 1 vor dem
                             # commit, auf den master zeigt.
 git push -u origin questions   # der branch questions wird auf github gepushed (dabei wird

@@ -20,4 +20,3 @@ Extensions - Zahnrad bei Coderunner - Configure Extension Settings
 `Strg M, Strg C` = toogle code-block 
  
 
-

@@ -73,3 +73,14 @@ print("hello world!")
 `Strg M, Strg C` = toogle code-block 
 
 ---- 
+
+
+Wenn man Latex-Code hat, kann man nicht die 3 Anführungszeichen für Code benutzen:
+
+```
+<p font-family = 'monospace' style='font-size:14;background-color:WhiteSmoke'>
+Alle Dinge sind leer. <br> 
+Für jedes x gilt: x ist leer. <br> 
+$\forall x: L(x)$ 
+</p> 
+```

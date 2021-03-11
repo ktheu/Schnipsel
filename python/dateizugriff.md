@@ -1,5 +1,12 @@
 ### Python - Dateizugriff
 
+### Datei in Jupyter Notebook schreiben
+
+```
+%%writefile test.txt
+Hello, this is a quick test file.
+This is the second line of the file.
+```
 #### Dateien öffnen
 
 Einfaches öffnen einer Datei
@@ -19,6 +26,20 @@ f = open(outdata,"w",encoding='utf-8')
 with open(indata, 'r') as f:
 
 ```
+
+#### read, seek
+read liest den gesamten Inhalt als String. Es nutzt einen Cursor der 
+anschließend am Ende der Datei steht. Wenn read nochmal ausgeführt wird, wird der leere String zurückgegeben. Deshalb vorher seek ausführen
+
+```
+f.read()
+f.seek(0)
+f.read()
+
+```
+
+
+
 #### Einlesen von zwei Zahlen, die in einer Zeile stehen
 
 ```

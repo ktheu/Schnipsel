@@ -28,8 +28,6 @@
 
 - [Markdown](./markdown/markdown.md)
 
-- [Matplotlib](./matplotlib/matplotlib.md)
-
 - [Mongoose](./mongoose/mongoose.md)
 
 - [Neuronale Netze](./neuronaleNetze/neuronaleNetze.md)
@@ -45,6 +43,10 @@
 - [Pytorch](./pytorch/pytorch.md)
 
 - [Php](./php/php.md)
+
+- [R](./r/r.md)
+
+- [SageMath](./sage/sage.md)
 
 - [Sql](./sql/sql.md)
 

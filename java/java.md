@@ -1,5 +1,14 @@
 ### Java Schnipsel
 
+#### Aufruf jar-Datei
+
+```
+"C:\Program Files\Java\jdk-11.0.4\bin\java.exe" -jar   "c:\Users\khthe\Documents\mystart.jar"
+
+oder 
+java -jar mystart.jar
+
+```
 
 #### Streams
 
